@@ -6,6 +6,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { AuthService } from './auth/auth.service';
 import { JwtStrategy } from './auth/jwt.strategy';
 import { AuthGuard } from './auth/auth.guard';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AuthGuard } from './auth/auth.guard';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
+    ChatModule,
   ],
   
   controllers: [UserController],
