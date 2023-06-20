@@ -28,7 +28,7 @@ export class UserService {
         name: data.name,
         email: data.email,
         password: hashedPassword,
-        role: data.role,
+   
       },
     });
     delete user.password;
