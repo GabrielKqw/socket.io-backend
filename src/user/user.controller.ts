@@ -6,7 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 
-@Controller(' ')
+@Controller('users')
 export class UserController {
   constructor(
     private readonly userService: UserService,
