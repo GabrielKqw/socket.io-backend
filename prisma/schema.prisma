@@ -17,6 +17,7 @@ model User {
 
 enum Role {
   OWNER
+  DEV
   ADMIN
   EMPRESA
   GERENTE
