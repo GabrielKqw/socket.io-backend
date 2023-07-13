@@ -1,73 +1,50 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# GTIBOT - Chatbot no WhatsApp usando Dialogflow
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Visão Geral do Projeto
+O GTIBOT é um chatbot desenvolvido para o WhatsApp, permitindo aos usuários interagir com o chatbot por meio do aplicativo de mensagens. O chatbot utiliza o Dialogflow para processar as mensagens dos usuários, compreender suas intenções e fornecer respostas relevantes e personalizadas.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Arquitetura do Sistema
+O sistema GTIBOT é composto pelos seguintes componentes:
+- Servidor Backend (Node.js, Express.js, NestJS)
+- Cliente de Integração com o WhatsApp (WhatsApp Business API)
+- Serviço de Processamento de Linguagem Natural (Dialogflow)
+- Banco de Dados (MongoDB)
 
-## Description
+## Configuração e Instalação
+1. Configuração do WhatsApp Business API:
+   - Siga as instruções fornecidas pelo WhatsApp Business API para obter acesso e configurar a integração do WhatsApp Business API.
+   - Registre um número de telefone comercial verificado para uso com a API.
+   - Configure o ambiente de execução para receber e enviar mensagens.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2. Configuração do Dialogflow:
+   - Crie um projeto no Dialogflow para gerenciar as interações do chatbot.
+   - Defina intents para capturar as intenções do usuário.
+   - Configure respostas adequadas para cada intent.
+   - Treine o modelo de linguagem para melhorar a compreensão do chatbot.
 
-## Installation
+3. Configuração do Backend:
+   - Instale as dependências necessárias para o servidor backend, como Node.js, Express.js ou NestJS.
+   - Configure as rotas e os controladores para receber mensagens do WhatsApp Business API.
+   - Implemente a lógica de envio das mensagens para o Dialogflow e o processamento das respostas recebidas.
 
-```bash
-$ npm install
-```
+4. Configuração do Banco de Dados:
+   - Instale e configure o MongoDB (ou outro banco de dados de sua escolha) para armazenar informações relevantes, como histórico de conversas e preferências do usuário.
 
-## Running the app
+## Fluxo de Conversação
+1. O usuário envia uma mensagem para o número de telefone do GTIBOT no WhatsApp.
+2. A mensagem é recebida pelo WhatsApp Business API e encaminhada para o servidor backend.
+3. O servidor backend envia a mensagem para o Dialogflow para processamento.
+4. O Dialogflow analisa a mensagem, compreende a intenção do usuário e gera uma resposta adequada.
+5. A resposta é enviada de volta para o servidor backend.
+6. O servidor backend encaminha a resposta para o WhatsApp Business API.
+7. O WhatsApp Business API envia a resposta de volta ao usuário no WhatsApp.
 
-```bash
-# development
-$ npm run start
+## Segurança
+- Certifique-se de seguir as diretrizes de segurança fornecidas pelo WhatsApp Business API para proteger o acesso ao seu número de telefone comercial verificado.
+- Implemente práticas de segurança adequadas no seu servidor backend, como autenticação e autorização adequadas, validação de entrada e proteção de dados sensíveis.
 
-# watch mode
-$ npm run start:dev
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests com melhorias, correções ou novos recursos.
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Licença
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
