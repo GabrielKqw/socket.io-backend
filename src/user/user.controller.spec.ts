@@ -1,13 +1,13 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, NotFoundException, UnauthorizedException } from '@nestjs/common';
-
-
+import { User } from './user.model';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
+import { UserController } from './user.controller';
 import { Test } from '@nestjs/testing';
-import { UserController } from 'src/user/user.controller';
-import { UserService } from 'src/user/user.service';
-import { UpdateUserDto } from 'src/user/dto/update-user.dto';
 
 describe('UserController', () => {
   let controller: UserController;
